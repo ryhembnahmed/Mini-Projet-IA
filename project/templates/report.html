@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Medic</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/default.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/component.css') }}" />
+		<!--Internal style-->
+		<style>
+			.heading > h1 {
+			font-size: 70px;
+			font-weight: 600;
+			color:  #fdfdfe;
+			text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+			0px 0px 20px #b393d3;}
+			.heading {
+			text-align: center;
+			}
+			.heading__title {
+			font-weight: 600;
+			}
+			.heading__credits {
+			margin: 10px 0px;
+			color: #888888;
+			font-size: 25px;
+			transition: all 0.5s;
+			}
+		</style>
+		<script src="{{ url_for('static', filename='js/modernizr.custom.js') }}"></script>
+	</head>
+	<body class="nl-blurred">
+		<div class="container demo-1">
+			<div class="heading">
+				<h1 class="heading__title">Pshyco-Medic</h1>
+				<img src="static\images\logo.jpg" alt="logo">
+			</div>
+			<div class="main clearfix">
+				<center>
+					<form id="nl-form" class="nl-form">
+						<span> {{list_param[0]}}</span>
+						<p style="font-size:x-large;">{{list_param[1]}}</p>
+						<div class="nl-submit-wrap">
+							<button class="nl-submit" type="button" onclick="goIndex(event)">Réessayer</button>
+						</div>
+						<div class="nl-overlay"></div>
+					</form>
+				</center>
+			</div>
+		</div>
+		<!--scripts-->
+		<script src="{{ url_for('static', filename='js/nlform.js') }}"></script>
+		<script>
+			var nlform = new NLForm( document.getElementById( 'nl-form' ) );
+			function goIndex(event){
+				location.href = "{{ url_for('index') }}";
+			}
+		</script>
+	</body>
+</html>
